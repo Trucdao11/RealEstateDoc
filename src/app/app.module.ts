@@ -8,6 +8,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { NewEditProductComponent } from './new-edit-product/new-edit-product.component';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +31,20 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     DashboardComponent,
     ProductListComponent,
     LoginComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    NewEditProductComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
   ],
   providers: [
     provideClientHydration(withEventReplay())
