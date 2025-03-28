@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,11 +17,16 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
 import { NewEditProductComponent } from './new-edit-product/new-edit-product.component';
+import { provideHttpClient } from '@angular/common/http';
+import { PaginationComponent } from './pagination/pagination.component';
+import { RangePipe } from "./pipes/range.pipe";
 
 
 @NgModule({
@@ -32,7 +37,8 @@ import { NewEditProductComponent } from './new-edit-product/new-edit-product.com
     ProductListComponent,
     LoginComponent,
     ConfirmDialogComponent,
-    NewEditProductComponent
+    NewEditProductComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +51,14 @@ import { NewEditProductComponent } from './new-edit-product/new-edit-product.com
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-  ],
+    RangePipe,
+    MatIconModule
+],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
