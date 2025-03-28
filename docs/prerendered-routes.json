@@ -1,0 +1,7 @@
+{
+  "routes": {
+    "/RealEstateDoc": {},
+    "/RealEstateDoc/dashboard": {},
+    "/RealEstateDoc/login": {}
+  }
+}
